@@ -23,6 +23,12 @@ a:hover {
     text-decoration: underline;
 }
 
+.plomme-img {
+    width: 500px;
+    max-width: 50%;
+    height: auto; 
+}
+
 .main-content {
     max-width: 1200px;
     margin: 0 auto; 
