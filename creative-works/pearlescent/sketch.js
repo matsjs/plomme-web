@@ -7,7 +7,8 @@ const speed = 0.02;
 
 function setup() {
   // put setup code here
-  createCanvas(xSize, ySize);
+  var canvas = createCanvas(xSize, ySize);
+  canvas.parent("p5-canvas");
   // frameRate(1);
   pixelDensity(1);
   frameRate(60);

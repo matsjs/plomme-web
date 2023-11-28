@@ -676,6 +676,7 @@ iconScale = (img, scale) => {
 
 function setup() {
   cnv = createCanvas(worldWidth * tileSize, worldHeight * tileSize);
+  cnv.parent("p5-canvas");
   cnv.mouseClicked(registerClick);
   pixelDensity(1);
   // Object.keys(iconIMG).forEach((key) => iconScale(iconIMG[key], 4));
@@ -718,9 +719,11 @@ drawMousePointer = () => {
   const xMouseTile = floor(mouseX / tileSize);
   const yMouseTile = floor(mouseY / tileSize);
   if (!(xMouseTile > world.length - 1) && !(yMouseTile > world[0].length - 1)) {
-    const tile = world[xMouseTile][yMouseTile];
-    tile.indicator = "O";
-    tile.setUpdated(true);
+    const tile = world?.[xMouseTile]?.[yMouseTile];
+    if (tile !== undefined) {
+      tile.indicator = "O";
+      tile.setUpdated(true);
+    }
   }
 };
 
@@ -889,7 +892,7 @@ function draw() {
   // }
   if (!autobuilding) {
     autobuilding = true;
-    autobuild(10);
+    autobuild(5);
   }
 }
 

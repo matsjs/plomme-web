@@ -81,7 +81,8 @@ const cY = 500;
 
 function setup() {
   // frameRate(10000)
-  createCanvas(cX, cY);
+  var canvas = createCanvas(cX, cY);
+  canvas.parent("p5-canvas");
   background(0);
   // Moving planets
   planets = [

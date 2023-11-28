@@ -154,7 +154,8 @@ function setup() {
   HEIGHT = windowHeight;
   WIDTH = windowWidth;
   // put setup code here
-  createCanvas(WIDTH, HEIGHT);
+  var canvas = createCanvas(WIDTH, HEIGHT);
+  canvas.parent("p5-canvas");
   skyColor = color(0, 12, 24);
   background(skyColor);
   textFont(myFont);

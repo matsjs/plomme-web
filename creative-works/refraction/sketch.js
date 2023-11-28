@@ -12,7 +12,8 @@ function setup() {
   frameRate(30);
   pixelDensity(1);
   noise_func = new OpenSimplexNoise(Date.now());
-  createCanvas(CANVAS_W, CANVAS_H);
+  var canvas = createCanvas(CANVAS_W, CANVAS_H);
+  canvas.parent("p5-canvas");
   background(0);
 }
 
