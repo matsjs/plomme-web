@@ -628,10 +628,10 @@ imgToPixels = (toPixelize) => {
 // ---------------------------------Standards---------------------------------
 function preload() {
   iconIMG = {
-    HILL: loadImage("/assets/hill.png"),
-    HOUSE: loadImage("/assets/house.png"),
-    TREE: loadImage("/assets/tree.png"),
-    FARM: loadImage("/assets/farm.png"),
+    HILL: loadImage("../../assets/hill.png"),
+    HOUSE: loadImage("../../assets/house.png"),
+    TREE: loadImage("../../assets/tree.png"),
+    FARM: loadImage("../../assets/farm.png"),
   };
 }
 
