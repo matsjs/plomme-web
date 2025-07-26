@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plomme | Consulting</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" type="image/x-icon" href="../public/favicon.ico">
+    <style>
+        .consulting-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .cv-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+        
+        .cv-header-left {
+            text-align: left;
+        }
+        
+        .cv-header h2 {
+            margin: 0;
+            font-size: 2.2em;
+            color: #050517;
+        }
+        
+        .cv-header .title {
+            font-size: 1.1em;
+            color: #2B0872;
+            margin: 5px 0 20px 0;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .contact-info span {
+            color: #050517;
+        }
+        
+        .cv-section {
+            margin-bottom: 40px;
+        }
+        
+        .cv-section h3 {
+            color: #2B0872;
+            border-bottom: 2px solid #2B0872;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .summary {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            text-align: left;
+            color: #050517;
+        }
+        
+        .experience-item {
+            margin-bottom: 30px;
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+        
+        .company-role {
+            font-weight: bold;
+            color: #050517;
+            font-size: 1.1em;
+        }
+        
+        .dates {
+            color: #2B0872;
+            font-weight: 500;
+        }
+        
+        .experience-description {
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .skills-grid li {
+            background: #FFF9EB;
+            border: 1px solid #2B0872;
+            border-radius: 5px;
+            padding: 8px 12px;
+            text-align: center;
+            color: #2B0872;
+        }
+        
+        .pdf-download {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .pdf-download a {
+            background: #2B0872;
+            color: #FFF9EB;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+        }
+        
+        .cv-header .pdf-download {
+            margin-top: 0;
+            align-self: flex-start;
+        }
+        
+        .pdf-download a:hover {
+            background: #611AEF;
+        }
+        
+        @media (max-width: 768px) {
+            .cv-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .cv-header-left {
+                text-align: center;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .dates {
+                margin-top: 5px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .consulting-content {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <header>
+            <h1><a href="../">Plomme.</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="../consulting">Consulting</a></li>
+                    <li><a href="../creative-works">Creative Works</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="consulting-content">
+            <div class="cv-header">
+                <div class="cv-header-left">
+                    <h2>Mats Jørgen Skaslien</h2>
+                    <div class="title">Software Engineer</div>
+                    <div class="contact-info">
+                        <span>Oslo, Norway</span>
+                        <span><a href="mailto:hei@plomme.com">hei@plomme.com</a></span>
+                        <span><a href="https://www.linkedin.com/in/mats-j-skaslien/">LinkedIn</a></span>
+                        <span><a href="https://github.com/matsjs">GitHub</a></span>
+                    </div>
+                </div>
+                <div class="pdf-download">
+                    <a href="../public/cv.pdf" target="_blank">Download PDF Version</a>
+                </div>
+            </div>
+
+            <div class="summary">
+                Software engineer with an M.Sc. in computer science. I have experience working with a wide range of technologies both front- and backend in small and large teams. I value running code, nice coworkers, and continuous delivery. In my spare time I develop games, bake bread and run.
+            </div>
+
+            <div class="cv-section">
+                <h3>Skills</h3>
+                <ul class="skills-grid">
+                    <li>Go, TypeScript, .NET</li>
+                    <li>React, React Native</li>
+                    <li>Kubernetes & Docker</li>
+                    <li>AWS, GCP, Azure</li>
+                    <li>MySQL, PostgreSQL</li>
+                    <li>REST, GraphQL, GRPC</li>
+                    <li>ElasticSearch (ELK)</li>
+                    <li>Terraform & IaC</li>
+                    <li>CI/CD & GitOps</li>
+                </ul>
+            </div>
+
+            <div class="cv-section">
+                <h3>Professional Experience</h3>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-role">Kompany/Abilia AS - Technical Lead/Fullstack</div>
+                        <div class="dates">May '24 - present</div>
+                    </div>
+                    <div class="experience-description">
+                        Leading technical development for Komp Pro, a digital care platform digitally connecting healthcare professionals and family with analogue users. Drive architecture decisions, mentor developers, and maintain critical infrastructure serving thousands of users across Norway and the world.
+                        <br><br>
+                        <strong>Full-Stack Development:</strong> Implemented video streaming for calendar events using S3/CloudFront, built template management system in Go with React frontend, and developed social features (likes/comments) for the React Native app. Led ExorLive integration enabling physical therapy exercises on Komp devices.
+                        <br><br>
+                        <strong>Infrastructure & DevOps:</strong> Upgraded Kubernetes clusters from 1.25 to 1.33 with zero downtime, migrated databases from MongoDB to DocumentDB, and maintain Docker/K8s configurations across 20+ microservices. Manage daily deployments, CI/CD pipelines, and incident response for production systems.
+                        <br><br>
+                        <strong>Technical Leadership:</strong> Established engineering practices including cycle planning and retrospectives. Conducted technical interviews, onboarded developers, and improved observability with Grafana dashboards. Resolved critical production incidents including DNS failures and authentication issues. Received exceptional feedback from CEO: "the best thing that had happened to the company."
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-role">Maperfo - Architect/Fullstack</div>
+                        <div class="dates">Jan '24 - May '24</div>
+                    </div>
+                    <div class="experience-description">
+                        Led the transition for Maperfo from a restrictive no-code platform to a robust, scalable web application. As a team leader and architect, my role involves guiding the company's junior developer, architectural design, and project monitoring. Initiatives include setting up the web application using MongoDB and Atlas search, Next.js/React with TypeScript, and hosting on Vercel. I also migrated the existing user base over to a self-hosted OAuth 2.0 flow, ensuring a smooth onboarding to the new platform for existing customers.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-role">Ventistål - Backend</div>
+                        <div class="dates">Jan '24 - May '24</div>
+                    </div>
+                    <div class="experience-description">
+                        <strong>Code Optimization and Upgrade:</strong> "Professionalized" and enhanced the robustness of .NET 6 Azure Cloud Functions through thorough code cleanup, writing of test suites, upgrading to .NET 8, as well as debugging and maintenance.
+                        <br><br>
+                        <strong>Automation of Price Lists:</strong> Developed and implemented Azure Cloud Functions (.Net 8) for secure and on-demand generation of price lists in various formats (json, csv, excel).
+                        <br><br>
+                        <strong>Infrastructure as Code (IaC):</strong> Implemented IaC using Bicep along with deployment pipelines to automate and simplify the process of provisioning and managing cloud resources.
+                        <br><br>
+                        <strong>Data Migration and Modernization:</strong> Streamlined the company's data infrastructure by migrating existing on-prem databases to Azure SQL using Azure Data Factory.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-role">Amedia - Fullstack/Backend</div>
+                        <div class="dates">Aug '22 - Dec '23</div>
+                    </div>
+                    <div class="experience-description">
+                        Worked mainly as a backend developer in a team of four to execute a backend re-write for the sports streaming platform Direktesport, delivering continuously and meeting critical deadlines. Developed a stream provisioning system using Node.js and TypeScript, simplifying broadcast scheduling for journalists by bridging Sanity with our online video platform. Worked with event-driven micro services using AWS SQS and Apache Kafka. Built a query service REST API using OpenSearch. Authored frontend features using Svelte and SvelteKit, including UI implementations and a streaming video upload web worker.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-role">No Isolation - Backend</div>
+                        <div class="dates">Apr '22 - Aug '22</div>
+                    </div>
+                    <div class="experience-description">
+                        Contributed to No Isolation's restructuring of the backend for Komp. This involved both working on existing services in Go and Node.js, and the new development of microservices in Go with Postgres for data storage. During my time with the client, I was also the main responsible for the summer interns.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-role">Norwegian Digitalisation Agency - Fullstack</div>
+                        <div class="dates">Sep '20 - Apr '22</div>
+                    </div>
+                    <div class="experience-description">
+                        Modernized and rewrote microservices from Java to Kotlin with Spring Boot, enhanced search performance and established "search as you type" using ElasticSearch, and wrote a Python library for parsing RDF to JSON-LD. Worked in a DevOps style where developers were responsible for Docker and Kubernetes/Helm for their deployments. Developed Google Cloud Functions in Go for integrating NodeBB with the frontend. Worked with event-driven microservices using Rabbit MQ.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-role">Master Thesis Project - Fullstack</div>
+                        <div class="dates">Jan '20 - Jun '20</div>
+                    </div>
+                    <div class="experience-description">
+                        Developed "Lister", a search engine and interface for Semantic Web data as part of my Master's thesis. Implemented a React-based frontend and a Node.js/Express.js backend integrated with ElasticSearch, establishing a sophisticated platform for data indexing and search. Automated data ingestion through Python scripts executing SPARQL queries, with interim storage in SQLite.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-role">Vipps - Frontend (internship)</div>
+                        <div class="dates">Jun - Aug '19</div>
+                    </div>
+                    <div class="experience-description">
+                        Developed the Vipps Developer documentation in a cross-functional team, automatically presenting up-to-date information for users of the Vipps APIs using TypeScript and React.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-role">Nordic Trustee - ML (internship)</div>
+                        <div class="dates">Jun - Aug '18</div>
+                    </div>
+                    <div class="experience-description">
+                        Implemented a complete pipeline for extracting textual information from unstructured PDFs using machine learning and natural language processing in a Python script. Also aided frontend development in React.
+                    </div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h3>Achievements</h3>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-role">1st place and "Best Solution to Real World Problem"</div>
+                        <div class="dates">2018 NEM Global Hackathon</div>
+                    </div>
+                    <div class="experience-description">
+                        Developed a chatbot for Facebook messenger that connected to users' cryptocurrency wallets, allowing them to send cryptocurrency to friends using natural language interactions. Implemented using Node.js and Javascript.
+                    </div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h3>Education</h3>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-role">Master of Science (Sivilingeniør) in Computer Science</div>
+                        <div class="dates">2015 - 2020</div>
+                    </div>
+                    <div class="experience-description">
+                        <strong>Norwegian University Of Science and Technology</strong><br>
+                        Specialized in database and search technology, my Master's thesis focused on developing a search engine for the Semantic Web using React with TypeScript for the frontend and Python for the backend. I also set up and hosted an ElasticSearch cluster for full text search and "search as you type" functionality. The goal was to improve usability in semantic web search tools, so design sprints and usability testing were conducted throughout the project.
+                        <br><br>
+                        In addition to my studies at the Norwegian University of Science and Technology, I spent a year at TU Wien during my exchange and two months at TU Graz while writing my thesis.
+                    </div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h3>Languages & Other</h3>
+                <ul class="skills-grid">
+                    <li>Native Norwegian speaker</li>
+                    <li>Fluent in English</li>
+                    <li>Certified at level B 1.2 in German</li>
+                    <li>European driving license class B</li>
+                </ul>
+            </div>
+
+            <div class="pdf-download">
+                <a href="../public/cv.pdf" target="_blank">Download PDF Version</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>Oslo, Norway</p>
+            <p>hei@plomme.com</p>
+        </footer>
+    </div>
+</body>
+</html>
