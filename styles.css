@@ -98,3 +98,55 @@ header, footer {
         flex-direction: column; 
     }
 }
+
+/* Creative Project Styles */
+.project-info {
+    margin: 20px 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.back-button {
+    color: #2B0872;
+    text-decoration: underline;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.back-button:hover {
+    color: #611AEF;
+    text-decoration: underline;
+}
+
+.project-title {
+    font-size: 1.8em;
+    color: #2B0872;
+    margin: 0 0 15px 0;
+    font-weight: 600;
+}
+
+.project-description {
+    font-size: 1em;
+    line-height: 1.5;
+    color: #050517;
+    text-align: left;
+    margin: 0 0 20px;
+}
+
+/* Constrain p5 canvas to text width */
+#p5-canvas {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    justify-content: flex-start !important;
+    overflow: hidden;
+}
+
+#p5-canvas canvas {
+    max-width: 100% !important;
+    height: auto !important;
+}
