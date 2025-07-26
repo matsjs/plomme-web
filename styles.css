@@ -75,6 +75,16 @@ header, footer {
 
 
 @media (max-width: 500px) {
+    nav ul {
+        flex-direction: column; 
+    }
+
+    nav li {
+        margin: 5px 0; 
+    }
+}
+
+@media (max-width: 350px) {
     .main-content {
         height: auto;
         padding: 20px; 
@@ -86,13 +96,5 @@ header, footer {
 
     header, footer {
         flex-direction: column; 
-    }
-
-    nav ul {
-        flex-direction: column; 
-    }
-
-    nav li {
-        margin: 5px 0; 
     }
 }
