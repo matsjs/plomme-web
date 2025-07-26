@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Josefin Sans';
-    src: url('public/JosefinSans-VariableFont_wght.ttf') format('truetype');
+    font-family: 'Funnel Display';
+    src: url('public/FunnelDisplay-VariableFont_wght.ttf') format('truetype');
     font-weight: 100 900; 
     font-style: normal; 
 }
@@ -10,7 +10,7 @@ body {
     margin: 0;
     background-color: #FFF9EB;
     color: #050517;
-    font-family: 'Josefin Sans', sans-serif; 
+    font-family: 'Funnel Display', sans-serif; 
 }
 
 a {
