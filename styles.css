@@ -32,9 +32,13 @@ a:hover {
 .main-content {
     max-width: 800px;
     margin: 0 auto; 
-    height: 90vh;
     display: flex;
     flex-direction: column;
+}
+
+body.home .main-content {
+    min-height: 90vh;
+    min-height: 90dvh;
     justify-content: space-between;
 }
 
