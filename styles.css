@@ -37,7 +37,8 @@ a:hover {
     flex-direction: column;
 }
 
-body.home .main-content {
+body.home .main-content,
+body.creative .main-content {
     min-height: 90vh;
     min-height: 90dvh;
     justify-content: space-between;
