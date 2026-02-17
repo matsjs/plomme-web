@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{POST_TITLE}} | Plomme Blog</title>
+    <meta name="description" content="{{POST_DESCRIPTION}}">
+    <meta name="author" content="{{AUTHOR_NAME}}">
+    <meta name="robots" content="index,follow">
+
+    <link rel="canonical" href="{{CANONICAL_URL}}">
+    <link rel="icon" type="image/x-icon" href="../../public/favicon.ico">
+    <link rel="stylesheet" href="../../styles.css">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{POST_TITLE}} | Plomme Blog">
+    <meta property="og:description" content="{{POST_DESCRIPTION}}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{CANONICAL_URL}}">
+    <meta property="og:image" content="{{OG_IMAGE_URL}}">
+    <meta property="og:site_name" content="Plomme">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{POST_TITLE}} | Plomme Blog">
+    <meta name="twitter:description" content="{{POST_DESCRIPTION}}">
+    <meta name="twitter:image" content="{{OG_IMAGE_URL}}">
+
+    <!-- Article metadata -->
+    <meta property="article:published_time" content="{{PUBLISHED_ISO8601}}">
+    <meta property="article:modified_time" content="{{MODIFIED_ISO8601}}">
+    <meta property="article:author" content="{{AUTHOR_PROFILE_URL}}">
+    <meta property="article:section" content="{{SECTION_NAME}}">
+    <meta property="article:tag" content="{{TAG_ONE}}">
+    <meta property="article:tag" content="{{TAG_TWO}}">
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "{{POST_TITLE}}",
+      "description": "{{POST_DESCRIPTION}}",
+      "datePublished": "{{PUBLISHED_ISO8601}}",
+      "dateModified": "{{MODIFIED_ISO8601}}",
+      "author": {
+        "@type": "Person",
+        "name": "{{AUTHOR_NAME}}",
+        "url": "{{AUTHOR_PROFILE_URL}}"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Plomme",
+        "url": "https://plomme.com"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{CANONICAL_URL}}"
+      },
+      "image": "{{OG_IMAGE_URL}}",
+      "keywords": "{{KEYWORDS_COMMA_SEPARATED}}"
+    }
+    </script>
+</head>
+<body class="blog">
+    <div class="main-content">
+        <header>
+            <h1><a href="../../">Plomme.</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="../../consulting">Consulting</a></li>
+                    <li><a href="../../blog">Blog</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <article class="project-info">
+            <a href="../../blog" class="back-button">← Back to Blog</a>
+            <h2 class="project-title">{{POST_TITLE}}</h2>
+            <p class="project-description">{{POST_EXCERPT}}</p>
+            <p class="project-description"><strong>Published:</strong> {{PUBLISHED_HUMAN_DATE}}</p>
+            <p class="project-description"><strong>Updated:</strong> {{MODIFIED_HUMAN_DATE}}</p>
+            <img src="{{HERO_IMAGE_URL}}" alt="{{HERO_IMAGE_ALT}}" class="plomme-img" width="{{HERO_IMAGE_WIDTH}}" height="{{HERO_IMAGE_HEIGHT}}">
+
+            <h3>{{SECTION_HEADING_ONE}}</h3>
+            <p class="project-description">{{SECTION_PARAGRAPH_ONE}}</p>
+
+            <h3>{{SECTION_HEADING_TWO}}</h3>
+            <p class="project-description">{{SECTION_PARAGRAPH_TWO}}</p>
+
+            <h3>{{SECTION_HEADING_THREE}}</h3>
+            <p class="project-description">{{SECTION_PARAGRAPH_THREE}}</p>
+        </article>
+
+        <footer>
+            <p>Oslo, Norway</p>
+            <p>hei@plomme.com</p>
+        </footer>
+    </div>
+</body>
+</html>
