@@ -1,0 +1,163 @@
+.consulting-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.cv-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.cv-header-left {
+    text-align: left;
+}
+
+.cv-header h2 {
+    margin: 0;
+    font-size: 2.2em;
+    color: #050517;
+}
+
+.cv-header .title {
+    font-size: 1.1em;
+    color: #2B0872;
+    margin: 5px 0 20px 0;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.contact-info span {
+    color: #050517;
+}
+
+.cv-section {
+    margin-bottom: 40px;
+}
+
+.cv-section h3 {
+    color: #2B0872;
+    border-bottom: 2px solid #2B0872;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.summary {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    text-align: left;
+    color: #050517;
+}
+
+.experience-item {
+    margin-bottom: 30px;
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+}
+
+.company-role {
+    font-weight: bold;
+    color: #050517;
+    font-size: 1.1em;
+}
+
+.dates {
+    color: #2B0872;
+    font-weight: 500;
+}
+
+.experience-description {
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.skills-grid li {
+    background: #FFF9EB;
+    border: 1px solid #2B0872;
+    border-radius: 5px;
+    padding: 8px 12px;
+    text-align: center;
+    color: #2B0872;
+}
+
+.pdf-download {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.pdf-download a {
+    background: #2B0872;
+    color: #FFF9EB;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.cv-header .pdf-download {
+    margin-top: 0;
+    align-self: flex-start;
+}
+
+.pdf-download a:hover {
+    background: #611AEF;
+}
+
+@media (max-width: 500px) {
+    .cv-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .cv-header-left {
+        text-align: center;
+    }
+    
+    .cv-header .pdf-download {
+        margin-top: 0;
+        align-self: center;
+    }
+    
+    .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .dates {
+        margin-top: 5px;
+    }
+    
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .consulting-content {
+        padding: 10px;
+    }
+}
