@@ -38,7 +38,8 @@ a:hover {
 }
 
 body.home .main-content,
-body.creative .main-content {
+body.creative .main-content,
+body.blog .main-content {
     min-height: 90vh;
     min-height: 90dvh;
     justify-content: space-between;
