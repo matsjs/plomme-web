@@ -6,7 +6,7 @@
 
     <title>{{POST_TITLE}} | Plomme Blog</title>
     <meta name="description" content="{{POST_DESCRIPTION}}">
-    <meta name="author" content="{{AUTHOR_NAME}}">
+    <meta name="author" content="Mats Jørgen Skaslien">
     <meta name="robots" content="index,follow">
 
     <link rel="canonical" href="{{CANONICAL_URL}}">
@@ -30,7 +30,7 @@
     <!-- Article metadata -->
     <meta property="article:published_time" content="{{PUBLISHED_ISO8601}}">
     <meta property="article:modified_time" content="{{MODIFIED_ISO8601}}">
-    <meta property="article:author" content="{{AUTHOR_PROFILE_URL}}">
+    <meta property="article:author" content="https://plomme.com/people/mats">
     <meta property="article:section" content="{{SECTION_NAME}}">
     <meta property="article:tag" content="{{TAG_ONE}}">
     <meta property="article:tag" content="{{TAG_TWO}}">
@@ -46,8 +46,8 @@
       "dateModified": "{{MODIFIED_ISO8601}}",
       "author": {
         "@type": "Person",
-        "name": "{{AUTHOR_NAME}}",
-        "url": "{{AUTHOR_PROFILE_URL}}"
+        "name": "Mats Jørgen Skaslien",
+        "url": "https://plomme.com/people/mats"
       },
       "publisher": {
         "@type": "Organization",
@@ -79,6 +79,7 @@
             <a href="../../blog" class="back-button">← Back to Blog</a>
             <h2 class="project-title">{{POST_TITLE}}</h2>
             <p class="project-description">{{POST_EXCERPT}}</p>
+            <p class="project-description"><strong>Author:</strong> <a href="../../people/mats" rel="author">Mats</a></p>
             <p class="project-description"><strong>Published:</strong> {{PUBLISHED_HUMAN_DATE}}</p>
             <p class="project-description"><strong>Updated:</strong> {{MODIFIED_HUMAN_DATE}}</p>
             <img src="{{HERO_IMAGE_URL}}" alt="{{HERO_IMAGE_ALT}}" class="plomme-img" width="{{HERO_IMAGE_WIDTH}}" height="{{HERO_IMAGE_HEIGHT}}">
