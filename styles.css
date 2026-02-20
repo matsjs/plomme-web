@@ -116,6 +116,10 @@ header, footer {
     text-align: left;
 }
 
+body.blog .project-info {
+    max-width: 80ch;
+}
+
 .back-button {
     color: #2B0872;
     text-decoration: underline;
@@ -142,6 +146,34 @@ header, footer {
     color: #050517;
     text-align: left;
     margin: 0 0 20px;
+}
+
+.project-description a {
+    color: #611AEF;
+    text-decoration: underline;
+}
+
+.project-description a:hover {
+    color: #2B0872;
+}
+
+.blog-hero-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+}
+
+.blog-hero {
+    margin: 0 0 20px;
+}
+
+.blog-hero-caption {
+    margin: 8px 0 0;
+    font-size: 0.9em;
+    line-height: 1.4;
+    color: #6F6687;
 }
 
 /* Constrain p5 canvas to text width */
