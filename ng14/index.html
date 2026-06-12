@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NG14</title>
+<style>
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: #d9d9d4;
+    font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE", cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    overflow: hidden;
+  }
+  .stage {
+    position: relative;
+    /* leave room so the drop shadow isn't clipped by the viewport */
+    width: min(80vw, 74vh, 560px);
+    aspect-ratio: 1;
+  }
+  /* pointer at the bottom, like the real wheel */
+  .pointer {
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 26px solid transparent;
+    border-right: 26px solid transparent;
+    border-bottom: 40px solid #9a9a9a;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,.4));
+    z-index: 3;
+  }
+  #wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 6px 24px rgba(0,0,0,.35), inset 0 0 0 10px #b9784a;
+    transform: rotate(0deg);
+    transition: transform 5s cubic-bezier(.17,.67,.16,1);
+  }
+  .hub {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 46px;
+    height: 46px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #f0f0f0, #8d8d8d 70%, #5a5a5a);
+    box-shadow: 0 2px 4px rgba(0,0,0,.5);
+    z-index: 2;
+  }
+  button {
+    font-family: inherit;
+    font-size: 22px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 40px;
+    background: #c1272d;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #8d1c20;
+    transition: transform .05s ease, box-shadow .05s ease;
+  }
+  button:active { transform: translateY(3px); box-shadow: 0 1px 0 #8d1c20; }
+  button:disabled { opacity: .6; cursor: default; }
+  #result {
+    font-size: 26px;
+    min-height: 1.3em;
+    text-align: center;
+    color: #1b2a64;
+    padding: 0 12px;
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="pointer"></div>
+    <svg id="wheel" viewBox="-200 -200 400 400" aria-hidden="true"></svg>
+    <div class="hub"></div>
+  </div>
+  <button id="spin">SPINN!!</button>
+  <div id="result"></div>
+
+  <script>
+    const NAVY = "#1b2a64", RED = "#c1272d";
+    const ORANGE = "#e8a020", ORANGE_DARK = "#c47d12";
+    // Clockwise from the top. boundary at 12 o'clock, each wedge 45°.
+    const KARSK = "(Karsk || whiskey) + skole";
+    const segments = [
+      { label: "Dra på skolen!!",            color: NAVY },
+      { label: "Too cool for school!!! :):)", color: RED  },
+      { label: "Dra på skolen!!",            color: NAVY },
+      // split wedge: beer half (lighter) | karsk half (darker)
+      { label: "🍺 " + KARSK,                color: ORANGE,
+        split: ["🍺", KARSK], splitColors: [ORANGE, ORANGE_DARK] },
+      { label: "Dra på skolen!!",            color: NAVY },
+      { label: "Ikke dra på skolen!!",       color: RED  },
+      { label: "Dra på skolen!!",            color: NAVY },
+      { label: "Ikke dra på skoorn!!!",      color: RED  },
+    ];
+
+    const N = segments.length;
+    const SEG = 360 / N;
+    const R = 198;
+    const svg = document.getElementById("wheel");
+    const SVGNS = "http://www.w3.org/2000/svg";
+
+    // angle helpers: 0° at top (12 o'clock), increasing clockwise
+    function pt(angleDeg, r) {
+      const a = (angleDeg - 90) * Math.PI / 180;
+      return [r * Math.cos(a), r * Math.sin(a)];
+    }
+
+    function wedgePath(start, end) {
+      const [x1, y1] = pt(start, R), [x2, y2] = pt(end, R);
+      return `M0 0 L${x1} ${y1} A${R} ${R} 0 0 1 ${x2} ${y2} Z`;
+    }
+
+    // A label that runs radially and reads from the outside edge inward.
+    function radialLabel(angle, text, fontSize) {
+      const t = document.createElementNS(SVGNS, "text");
+      // rotate the frame onto the wedge bisector, walk out to mid-radius,
+      // then turn the text 90° so it runs along the radius (outside -> in).
+      t.setAttribute("transform", `rotate(${angle}) translate(0 ${-R * 0.5}) rotate(90)`);
+      t.setAttribute("fill", "#fff");
+      t.setAttribute("text-anchor", "middle");
+      t.setAttribute("dominant-baseline", "middle");
+      t.setAttribute("font-family", '"Comic Sans MS","Comic Sans","Chalkboard SE",cursive');
+      t.setAttribute("font-size", fontSize);
+      t.setAttribute("font-weight", "bold");
+      t.textContent = text;
+      return t;
+    }
+
+    function divider(angle) {
+      const [x, y] = pt(angle, R);
+      const ln = document.createElementNS(SVGNS, "line");
+      ln.setAttribute("x1", "0"); ln.setAttribute("y1", "0");
+      ln.setAttribute("x2", x);   ln.setAttribute("y2", y);
+      ln.setAttribute("stroke", "rgba(0,0,0,.25)");
+      ln.setAttribute("stroke-width", "1.5");
+      return ln;
+    }
+
+    function wedge(start, end, fill) {
+      const path = document.createElementNS(SVGNS, "path");
+      path.setAttribute("d", wedgePath(start, end));
+      path.setAttribute("fill", fill);
+      path.setAttribute("stroke", "rgba(0,0,0,.18)");
+      path.setAttribute("stroke-width", "1");
+      svg.appendChild(path);
+    }
+
+    segments.forEach((s, i) => {
+      const start = i * SEG, end = (i + 1) * SEG, mid = start + SEG / 2;
+
+      if (s.split) {
+        // two halves, each its own colour: beer | karsk
+        wedge(start, mid, s.splitColors[0]);
+        wedge(mid, end, s.splitColors[1]);
+        svg.appendChild(divider(mid));
+        svg.appendChild(radialLabel(start + SEG * 0.25, s.split[0], 30));
+        svg.appendChild(radialLabel(start + SEG * 0.75, s.split[1], 11));
+      } else {
+        wedge(start, end, s.color);
+        const fs = s.label.length > 18 ? 12 : 15;
+        svg.appendChild(radialLabel(mid, s.label, fs));
+      }
+    });
+
+    const wheel = document.getElementById("wheel");
+    const btn = document.getElementById("spin");
+    const result = document.getElementById("result");
+    let current = 0; // accumulated rotation in degrees
+
+    btn.addEventListener("click", () => {
+      btn.disabled = true;
+      result.textContent = "";
+
+      const winner = Math.floor(Math.random() * N);
+      // centre angle of winner (cw from top). Pointer is at the BOTTOM (180°).
+      // We need winner's centre to land at 180°. Rotate the wheel by R deg cw.
+      const center = winner * SEG + SEG / 2;
+      const target = 180 - center; // base rotation that puts winner at bottom
+      const spins = 5 + Math.floor(Math.random() * 3);
+      // advance current to next multiple that ends on target (mod 360)
+      const base = current - (current % 360);
+      let next = base + spins * 360 + ((target % 360) + 360) % 360;
+      if (next <= current) next += 360;
+      current = next;
+
+      wheel.style.transform = `rotate(${current}deg)`;
+    });
+
+    wheel.addEventListener("transitionend", () => {
+      const norm = ((current % 360) + 360) % 360;
+      // which segment centre is nearest the bottom pointer (180°)?
+      let best = 0, bestDiff = 1e9;
+      for (let i = 0; i < N; i++) {
+        const center = (i * SEG + SEG / 2 + norm) % 360;
+        let diff = Math.abs(center - 180);
+        diff = Math.min(diff, 360 - diff);
+        if (diff < bestDiff) { bestDiff = diff; best = i; }
+      }
+      result.textContent = "👉 " + segments[best].label;
+      btn.disabled = false;
+    });
+  </script>
+</body>
+</html>
