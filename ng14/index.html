@@ -16,12 +16,11 @@
     align-items: center;
     justify-content: center;
     gap: 28px;
-    overflow: hidden;
   }
   .stage {
     position: relative;
     /* leave room so the drop shadow isn't clipped by the viewport */
-    width: min(80vw, 74vh, 560px);
+    width: min(78vw, 72vh, 540px);
     aspect-ratio: 1;
   }
   /* pointer at the bottom, like the real wheel */
@@ -38,11 +37,22 @@
     filter: drop-shadow(0 2px 2px rgba(0,0,0,.4));
     z-index: 3;
   }
+  /* static disc behind the wheel: the drop shadow lives here so it doesn't
+     swing around with the spinning wheel or get clipped */
+  .disc {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: #b9784a;
+    box-shadow: 0 6px 24px rgba(0,0,0,.35);
+  }
   #wheel {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    box-shadow: 0 6px 24px rgba(0,0,0,.35), inset 0 0 0 10px #b9784a;
+    box-shadow: inset 0 0 0 10px #b9784a;
     transform: rotate(0deg);
     transition: transform 5s cubic-bezier(.17,.67,.16,1);
   }
@@ -84,6 +94,7 @@
 <body>
   <div class="stage">
     <div class="pointer"></div>
+    <div class="disc"></div>
     <svg id="wheel" viewBox="-200 -200 400 400" aria-hidden="true"></svg>
     <div class="hub"></div>
   </div>
@@ -94,18 +105,18 @@
     const NAVY = "#1b2a64", RED = "#c1272d";
     const ORANGE = "#e8a020", ORANGE_DARK = "#c47d12";
     // Clockwise from the top. boundary at 12 o'clock, each wedge 45°.
-    const KARSK = "(Karsk || whiskey) + skole";
+    const KARSK = "(Karsk || whiskey) + giftemål";
     const segments = [
-      { label: "Dra på skolen!!",            color: NAVY },
-      { label: "Too cool for school!!! :):)", color: RED  },
-      { label: "Dra på skolen!!",            color: NAVY },
+      { label: "Gift dæ!!",                  color: NAVY },
+      { label: "Too cool for giftemål!!! :):)", color: RED  },
+      { label: "Gift dæ!!",                  color: NAVY },
       // split wedge: beer half (lighter) | karsk half (darker)
       { label: "🍺 " + KARSK,                color: ORANGE,
         split: ["🍺", KARSK], splitColors: [ORANGE, ORANGE_DARK] },
-      { label: "Dra på skolen!!",            color: NAVY },
-      { label: "Ikke dra på skolen!!",       color: RED  },
-      { label: "Dra på skolen!!",            color: NAVY },
-      { label: "Ikke dra på skoorn!!!",      color: RED  },
+      { label: "Gift dæ!!",                  color: NAVY },
+      { label: "Ikke gift dæ!!",             color: RED  },
+      { label: "Gift dæ!!",                  color: NAVY },
+      { label: "Ikke gift rææ!!!",           color: RED  },
     ];
 
     const N = segments.length;
